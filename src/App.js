@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       {/* Dashboard is our homepage */}
-      <Route path='/'>
+      <Route path='/' exact={true}>
         <Dashboard></Dashboard>
       </Route>
       <Route path='/login'>
