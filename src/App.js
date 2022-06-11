@@ -5,14 +5,19 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 function App() {
   return (
     <Router>
-      {/* Dashboard is our homepage. Making sure the url matches exactly */}
-      <Route path='/' exact={true}>
-        <Dashboard></Dashboard>
-      </Route>
-      <Route path='/login'>
-        <Login></Login>
-      </Route>
-      {/* <Error /> */}
+       
+      <Switch>
+        {/* Dashboard is our homepage. Making sure the url matches exactly */}
+        <Route path='/' exact={true}>
+          <Dashboard></Dashboard>
+        </Route>
+        <Route path='/login'>
+          <Login></Login>
+        </Route>
+        <Route path='*'>
+          <Error></Error>
+        </Route>
+      </Switch>
     </Router>
   )
 }
