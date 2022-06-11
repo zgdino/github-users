@@ -14,6 +14,7 @@ function App() {
         <Route path='/login'>
           <Login></Login>
         </Route>
+        {/* sign '*' refers to the page that does not exist */}
         <Route path='*'>
           <Error></Error>
         </Route>
