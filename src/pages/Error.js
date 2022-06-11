@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 const Error = () => {
+  // wrapper is not pulling its styles from global styles, but from bellow set properties
   return <Wrapper>
     <div>
       <h1>404</h1>
