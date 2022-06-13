@@ -9,7 +9,7 @@ const rootUrl = 'https://api.github.com'
 const GithubContext = React.createContext()
 
 // Provider - GithubContext.Provider is getting setup bellow
-// User - GithubContext.Consumer will get set up in each component through useGlobalContext hook
+// User - GithubContext.Consumer will get set up in each component through useContext hook
 
 const GithubProvider = ({ children }) => {
   return (
