@@ -6,6 +6,7 @@ const Login = () => {
   return (
     <Wrapper>
       <div className='container'>
+        {/* image is imported on top */}
         <img src={loginImg} alt='github user' />
         <h1>github user</h1>
         <button className="btn">
