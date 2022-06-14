@@ -4,7 +4,7 @@ import mockRepos from './mockData.js/mockRepos'
 import mockFollowers from './mockData.js/mockFollowers'
 import axios from 'axios'
 
-// github API only gives 60 requests per user
+// github API only gives 60 requests per user and that is why we are using mock values for builf=ding this app
 const rootUrl = 'https://api.github.com'
 
 const GithubContext = React.createContext()
@@ -13,6 +13,8 @@ const GithubContext = React.createContext()
 // User - GithubContext.Consumer will get set up in each component through useContext hook
 
 const GithubProvider = ({ children }) => {
+  // useState hook returns default value(githunUser in this case) and a function that allows us to change it(setGithubUser)
+  const [githubUser, setGithubUser] = useState(mockUser)
   return (
     <GithubContext.Provider value={'hello'}>{children}</GithubContext.Provider>
   )
