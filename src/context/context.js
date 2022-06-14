@@ -14,6 +14,7 @@ const GithubContext = React.createContext()
 
 const GithubProvider = ({ children }) => {
   // useState hook returns an array of two values - default value(githunUser in this case) and a function that allows us to change it(setGithubUser)
+  // we are using mock (static) data because of 60 requests limit by github API
   const [githubUser, setGithubUser] = useState(mockUser)
   const [repos, setRepos] = useState(mockRepos)
   const [followers, setFollowers] = useState(mockFollowers)

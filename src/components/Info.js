@@ -7,7 +7,7 @@ import { FiUsers, FiUserPlus } from 'react-icons/fi'
 const UserInfo = () => {
   // accessing GithubContext through useContext hook; this bellow is just one of the ways to access the hook
   const data = React.useContext(GithubContext)
-  console.log(data);
+  console.log(data)
   return <h2>user info component</h2>
 }
 
