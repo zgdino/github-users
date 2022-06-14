@@ -4,6 +4,7 @@ import mockRepos from './mockData.js/mockRepos'
 import mockFollowers from './mockData.js/mockFollowers'
 import axios from 'axios'
 
+// github API only gives 60 requests per user
 const rootUrl = 'https://api.github.com'
 
 const GithubContext = React.createContext()
