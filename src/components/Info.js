@@ -43,7 +43,32 @@ const UserInfo = () => {
     },
   ]
 
-  return <h2>user info component</h2>
+  return (
+    <section className='section'>
+      {/* Wrapper is defined bellow and we are also applying global class(from our css file) to it */}
+      <Wrapper className='section-center'>
+        {/* pulling each item form items array */}
+        {items.map((item) => {
+          // by ...item I am destructuring values from item which is basically the Item component so I use all of its values instead listing them one by one; if I use only few, then I would have to list specifficaly the ones I am using, but since I am using all of them I can use the spread(...) operator
+
+          // for each one of those items we are returning Item component that is using the values from items array; the reason we cannot use the spread operator here is because we are not using all of the values, but 4/5
+          return <Item key={item.id} {...item}></Item>
+        })}
+      </Wrapper>
+    </section>
+  )
+}
+
+const Item = ({ icon, label, value, color }) => {
+  return (
+    <article className='item'>
+      <span className={color}>{icon}</span>
+      <div>
+        <h3>{value}</h3>
+        <p>{label}</p>
+      </div>
+    </article>
+  )
 }
 
 const Wrapper = styled.section`

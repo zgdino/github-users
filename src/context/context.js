@@ -4,7 +4,7 @@ import mockRepos from './mockData.js/mockRepos'
 import mockFollowers from './mockData.js/mockFollowers'
 import axios from 'axios'
 
-// github API only gives 60 requests per user and that is why we are using mock values for builf=ding this app
+// github API only gives 60 requests per user and that is why we are using mock values for building this app
 const rootUrl = 'https://api.github.com'
 
 const GithubContext = React.createContext()
