@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md'
 const Card = () => {
   const { githubUser } = React.useContext(GithubContext)
-  // destructuring properties that we need for a Card component from a githubUser that is defined in context.js which is pulling values from mockUser.js 
+  // destructuring properties that we need for a Card component from a githubUser that is defined in context.js which is pulling values from mockUser.js
   // we are using mock user data because github API limits us to only 60 querries per hour
   const {
     avatar_url,
@@ -17,11 +17,18 @@ const Card = () => {
     twitter_username,
   } = githubUser
 
-  return <Wrapper>
-    <header>
-      <img src={avatar_url} alt={name} />
-    </header>
-  </Wrapper>
+  return (
+    <Wrapper>
+      <header>
+        <img src={avatar_url} alt={name} />
+        <div>
+          <h4>{name}</h4>
+          {/* if user does not have a twitter account then simply display 'jonh doe' */}
+          <p>@{twitter_username || 'john doe'}</p>
+        </div>
+      </header>
+    </Wrapper>
+  )
 }
 const Wrapper = styled.article`
   background: var(--clr-white);
