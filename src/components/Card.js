@@ -26,7 +26,21 @@ const Card = () => {
           {/* if user does not have a twitter account then simply display 'jonh doe' */}
           <p>@{twitter_username || 'john doe'}</p>
         </div>
+        <a href={html_url}>follow</a>
       </header>
+      <p className='bio'>{bio}</p>
+      <div className='links'>
+        <p>
+          <MdBusiness></MdBusiness> {company}
+        </p>
+        <p>
+          <MdLocationOn></MdLocationOn> {location || 'earth'}
+        </p>
+        <a href={`https://${blog}`}>
+          <MdLink></MdLink>
+          {blog}
+        </a>
+      </div>
     </Wrapper>
   )
 }
