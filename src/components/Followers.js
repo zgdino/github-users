@@ -49,6 +49,7 @@ const Wrapper = styled.article`
     font-size: 1rem;
   }
   .followers {
+    // making it scrollable by y-axis and completely removing x-axis from the user view ↓ next two lines of code
     overflow: scroll;
     overflow-x: hidden;
     height: 260px;
