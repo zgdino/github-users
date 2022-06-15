@@ -1,10 +1,28 @@
-import React from 'react';
-import { GithubContext } from '../context/context';
-import styled from 'styled-components';
-import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md';
+import React from 'react'
+import { GithubContext } from '../context/context'
+import styled from 'styled-components'
+import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md'
 const Card = () => {
-  return <h2>card component</h2>;
-};
+  const { githubUser } = React.useContext(GithubContext)
+  // destructuring properties that we need for a Card component from a githubUser that is defined in context.js which is pulling values from mockUser.js 
+  // we are using mock user data because github API limits us to only 60 querries per hour
+  const {
+    avatar_url,
+    html_url,
+    name,
+    company,
+    blog,
+    bio,
+    location,
+    twitter_username,
+  } = githubUser
+
+  return <Wrapper>
+    <header>
+      <img src={avatar_url} alt={name} />
+    </header>
+  </Wrapper>
+}
 const Wrapper = styled.article`
   background: var(--clr-white);
   padding: 1.5rem 2rem;
@@ -84,5 +102,5 @@ const Wrapper = styled.article`
       }
     }
   }
-`;
-export default Card;
+`
+export default Card
