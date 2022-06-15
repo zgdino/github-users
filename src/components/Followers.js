@@ -7,19 +7,21 @@ const Followers = () => {
 
   return (
     <Wrapper>
-      {followers.map((follower, index) => {
-        // we are giving an alias to avatar_url → img; no alaises for the other two
-        const { avatar_url: img, html_url, login } = follower
-        return (
-          <article key={index}>
-            <img src={img} alt={login} />
-            <div>
-              <h4>{login}</h4>
-              <a href={html_url}>{html_url}</a>
-            </div>
-          </article>
-        )
-      })}
+      <div className='followers'>
+        {followers.map((follower, index) => {
+          // we are giving an alias to avatar_url → img; no alaises for the other two
+          const { avatar_url: img, html_url, login } = follower
+          return (
+            <article key={index} className='follower'>
+              <img src={img} alt={login} />
+              <div>
+                <h4>{login}</h4>
+                <a href={html_url}>{html_url}</a>
+              </div>
+            </article>
+          )
+        })}
+      </div>
     </Wrapper>
   )
 }
@@ -48,6 +50,7 @@ const Wrapper = styled.article`
   }
   .followers {
     overflow: scroll;
+    overflow-x: hidden;
     height: 260px;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
