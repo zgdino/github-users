@@ -6,10 +6,24 @@ const Repos = () => {
   // repos is initialized in context.js by mockRepos.js and we are accessing it here by using useContext hook
   const { repos } = React.useContext(GithubContext)
   console.log(repos)
+  const chartData = [
+    {
+      label: 'HTML',
+      value: '13',
+    },
+    {
+      label: 'CSS',
+      value: '23',
+    },
+    {
+      label: 'Javascript',
+      value: '80',
+    },
+  ]
   return (
     <section className='section'>
       <Wrapper className='section-center'>
-        <ExampleChart />
+        <ExampleChart data={chartData} />
       </Wrapper>
     </section>
   )
