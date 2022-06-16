@@ -29,7 +29,9 @@ const ChartComponent = ({ data }) => {
       // Chart Configuration
       chart: {
         caption: 'Languages',
-        theme: 'fusion' ,
+        theme: 'fusion',
+        decimals: 0,
+        pieRadius: '45%'
       },
       // data is dynamically passed from Repos.js
       // data:data means the same as just writting <<data>>

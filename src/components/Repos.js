@@ -23,8 +23,8 @@ const Repos = () => {
   return (
     <section className='section'>
       <Wrapper className='section-center'>
+        {/* it will show pie chart in percentages calculated from chartData ↑ */}
         <Pie3D data={chartData}/>
-        {/* <ExampleChart data={chartData} /> */}
       </Wrapper>
     </section>
   )
