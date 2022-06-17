@@ -7,11 +7,11 @@ const Repos = () => {
   const { repos } = React.useContext(GithubContext)
   // using reduce to determine the most used language
   let languages = repos.reduce((total, item) => {
-    // destructuring the property under the name of <<language>> out of each item we are iterating ... you can see it if you console.log(item)
+    // destructuring the property under the name of <<language>> out of each item(repo which is also an object) we are iterating ... you can see it if you console.log(item)
     const { language } = item
     // if the language is <<null>> simply return the total and remember there will be a return for each item in iteration; this one return does not mean the whole loop stops
     if (!language) return total
-    // if the property on the object does not exist begin the count and it will not exist in the first iteration, but it WILL exist in every other
+    // if the property on the object does not exist begin the count and it will not exist in the first iteration, but we are adding it to the total so it begins to exist here; we are modifying it to show us what we need
     if (!total[language]) {
       total[language] = { label: language, value: 1 }
       // if the property DOES exist add 1 and it WILL on every iteration after the first one
@@ -31,6 +31,7 @@ const Repos = () => {
     .slice(0, 5)
   console.log(languages)
 
+  // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
     {
       label: 'HTML',
