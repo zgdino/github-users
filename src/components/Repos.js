@@ -6,12 +6,19 @@ const Repos = () => {
   // repos is initialized in context.js by mockRepos.js and we are accessing it here by using useContext hook
   const { repos } = React.useContext(GithubContext)
   // using reduce to determine the most used language
-  const languages = repos.reduce((total, item) => {
+  let languages = repos.reduce((total, item) => {
     // destructuring the property under the name of <<language>> out of each item we are iterating ... you can see it if you console.log(item)
-    const {language} = item
-    console.log(language)
+    const { language } = item
+    // if the language is <<null>> simply return the toal
+    if (!language) return total
+    if (!total[language]) {
+      total[language] = 1
+    } else {
+      total[language]++
+    }
     return total
   }, {})
+  console.log(languages);
   const chartData = [
     {
       label: 'HTML',
