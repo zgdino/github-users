@@ -11,10 +11,10 @@ const Repos = () => {
     const { language } = item
     // if the language is <<null>> simply return the toal
     if (!language) return total
-    // if the property on the object does not exist begin the count
+    // if the property on the object does not exist begin the count and it will not exist in the first iteration, but it WILL exist in every other
     if (!total[language]) {
       total[language] = 1
-      // if the property DOES exist add 1
+      // if the property DOES exist add 1 and it WILL on every iteration after the first one
     } else {
       total[language]++
     }
