@@ -5,7 +5,13 @@ import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts'
 const Repos = () => {
   // repos is initialized in context.js by mockRepos.js and we are accessing it here by using useContext hook
   const { repos } = React.useContext(GithubContext)
-  console.log(repos)
+  // using reduce to determine the most used language
+  const languages = repos.reduce((total, item) => {
+    // destructuring the property under the name of <<language>> out of each item we are iterating ... you can see it if you console.log(item)
+    const {language} = item
+    console.log(language)
+    return total
+  }, {})
   const chartData = [
     {
       label: 'HTML',
@@ -24,7 +30,7 @@ const Repos = () => {
     <section className='section'>
       <Wrapper className='section-center'>
         {/* it will show pie chart in percentages calculated from chartData ↑ */}
-        <Pie3D data={chartData}/>
+        <Pie3D data={chartData} />
       </Wrapper>
     </section>
   )
