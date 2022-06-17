@@ -21,7 +21,16 @@ const Repos = () => {
     }
     return total
   }, {})
-  console.log(languages)
+  // to see what is happenning with the code for <<languages>> console.log(languages) at this point
+
+  // turning languages into an array of objects and sorting it out to have highest value language first and then through slice showing only first 5 most popular languages([0,5>) - we are doing this beacuse some people use over 20 languages in their portfolio and the chart would become unreadable
+  languages = Object.values(languages)
+    .sort((a, b) => {
+      return b.value - a.value
+    })
+    .slice(0, 5)
+  // console.log(languages) at this point
+
   const chartData = [
     {
       label: 'HTML',
