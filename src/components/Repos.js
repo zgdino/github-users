@@ -13,6 +13,7 @@ const Repos = () => {
     if (!language) return total
     // if the property on the object does not exist begin the count and it will not exist in the first iteration, but we are adding it to the total so it begins to exist here; we are modifying it to show us what we need
     if (!total[language]) {
+      // using total[language] instead total.language is because first one creates dynamic properties on the fly and the second one sets the same property on every iteration
       total[language] = { label: language, value: 1 }
       // if the property DOES exist add 1 and it WILL on every iteration after the first one
     } else {
