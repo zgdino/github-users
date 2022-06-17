@@ -9,18 +9,19 @@ const Repos = () => {
   let languages = repos.reduce((total, item) => {
     // destructuring the property under the name of <<language>> out of each item we are iterating ... you can see it if you console.log(item)
     const { language } = item
-    // if the language is <<null>> simply return the toal
+    // if the language is <<null>> simply return the total and remember there will be a return for each item in iteration; this one return does not mean the whole loop stops
     if (!language) return total
     // if the property on the object does not exist begin the count and it will not exist in the first iteration, but it WILL exist in every other
     if (!total[language]) {
-      total[language] = 1
+      total[language] = { label: language, value: 1 }
       // if the property DOES exist add 1 and it WILL on every iteration after the first one
     } else {
-      total[language]++
+      // take all the values from total(defined upstairs; there is only two of them - <<label>> which is equal to the language and <<value>> which begins with 1) and overwrite the property of <<value>> by adding +1 to it
+      total[language] = { ...total[language], value: total[language].value + 1 }
     }
     return total
   }, {})
-  console.log(languages);
+  console.log(languages)
   const chartData = [
     {
       label: 'HTML',
