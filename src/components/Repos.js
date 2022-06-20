@@ -6,7 +6,7 @@ const Repos = () => {
   // repos is initialized in context.js by mockRepos.js and we are accessing it here by using useContext hook
   const { repos } = React.useContext(GithubContext)
   // using reduce to determine the most used language
-  let languages = repos.reduce((total, item) => {
+  const languages = repos.reduce((total, item) => {
     // destructuring the property under the name of <<language>> out of each item(repo which is also an object) we are iterating ... you can see it if you console.log(item)
     const { language, stargazers_count } = item
     // if the language is <<null>> simply return the total and remember there will be a return for each item in iteration; this one return does not mean the whole loop stops
@@ -27,16 +27,18 @@ const Repos = () => {
     }
     return total
   }, {})
-  console.log(languages);
   // to see what is happenning with the code for <<languages>> console.log(languages) at this point
 
   // turning languages into an array of objects and sorting it out to have highest value language first and then through slice showing only first 5 most popular languages(slice(0,5) = [0,5> || [0,4]) - we are doing this beacuse some people use over 20 languages in their portfolio and the chart would become unreadable
-  languages = Object.values(languages)
+  const mostUsed = Object.values(languages)
     .sort((a, b) => {
       return b.value - a.value
     })
     .slice(0, 5)
   console.log(languages)
+
+  // most stars per language
+  const mostPopular = Object.values(languages)
 
   // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
@@ -58,7 +60,7 @@ const Repos = () => {
       <Wrapper className='section-center'>
         {/* it will show pie chart in percentages calculated from chartData ↑ */}
         {/* pull the data to be displayed from languages */}
-        <Pie3D data={languages} />
+        <Pie3D data={mostUsed} />
         <div></div>
         <Doughnut2D data={chartData} />
       </Wrapper>
