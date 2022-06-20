@@ -45,7 +45,7 @@ const Repos = () => {
       // putting the stars number in the value position because the chart is always looking for the value
       return { ...item, value: item.stars }
     })
-  console.log(mostPopular)
+    .slice(0, 5)
 
   // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
@@ -69,7 +69,7 @@ const Repos = () => {
         {/* pull the data to be displayed from languages */}
         <Pie3D data={mostUsed} />
         <div></div>
-        <Doughnut2D data={chartData} />
+        <Doughnut2D data={mostPopular} />
       </Wrapper>
     </section>
   )
