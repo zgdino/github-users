@@ -35,10 +35,17 @@ const Repos = () => {
       return b.value - a.value
     })
     .slice(0, 5)
-  console.log(languages)
 
   // most stars per language
   const mostPopular = Object.values(languages)
+    .sort((a, b) => {
+      return b.stars - a.stars
+    })
+    .map((item) => {
+      // putting the stars number in the value position because the chart is always looking for the value
+      return { ...item, value: item.stars }
+    })
+  console.log(mostPopular)
 
   // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
