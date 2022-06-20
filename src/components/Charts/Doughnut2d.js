@@ -12,7 +12,7 @@ import FusionCharts from 'fusioncharts'
 import Chart from 'fusioncharts/fusioncharts.charts'
 
 // Include the theme as fusion
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion'
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy'
 
 // Adding the chart and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, Chart, FusionTheme)
@@ -34,9 +34,10 @@ const ChartComponent = ({ data }) => {
         doughnutRadius: '45%',
         // remove percentages and show me the real values
         showPercentValues: 0,
+        theme: 'candy',
       },
       // data is dynamically passed from Repos.js
-      // data:data means the same as just writting <<data>>
+      // writting data means the same as data:data
       data,
     },
   }
