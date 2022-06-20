@@ -21,17 +21,19 @@ ReactFC.fcRoot(FusionCharts, Chart, FusionTheme)
 
 const ChartComponent = ({ data }) => {
   const chartConfigs = {
-    type: 'pie3d', // The chart type
+    type: 'doughnut2d', // The chart type
     width: '100%', // Width of the chart; make it responsive
     height: '400', // Height of the chart
     dataFormat: 'json', // Data type
     dataSource: {
       // Chart Configuration
       chart: {
-        caption: 'Languages',
-        theme: 'fusion',
+        caption: 'Stars per Language',
+        // no decimal points
         decimals: 0,
-        pieRadius: '45%',
+        doughnutRadius: '45%',
+        // remove percentages and show me the real values
+        showPercentValues: 0,
       },
       // data is dynamically passed from Repos.js
       // data:data means the same as just writting <<data>>
