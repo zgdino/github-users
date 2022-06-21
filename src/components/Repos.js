@@ -53,7 +53,8 @@ const Repos = () => {
     (total, item) => {
       const { stargazers_count, name, forks } = item
       // setting it up to match the charts 'needs' like in the previous charts
-      total.stars[stargazers_count] = {label: name,value:stargazers_count}
+      total.stars[stargazers_count] = { label: name, value: stargazers_count }
+      total.forks[forks] = {label: name, value: forks}
       return total
     },
     {
@@ -63,31 +64,17 @@ const Repos = () => {
   )
   // creating stars in to an array, showcasing the last five in everse order bacuse we are looking the ones with the most stars in ascending order
   stars = Object.values(stars).slice(-5).reverse()
+  forks = Object.values(forks).slice(-5).reverse()
 
-  // this is hard coded chart that we used to showcase charts before making them dynamic
-  const chartData = [
-    {
-      label: 'HTML',
-      value: '13',
-    },
-    {
-      label: 'CSS',
-      value: '23',
-    },
-    {
-      label: 'Javascript',
-      value: '80',
-    },
-  ]
   return (
     <section className='section'>
       <Wrapper className='section-center'>
         {/* it will show pie chart in percentages calculated from chartData ↑ */}
         {/* pull the data to be displayed from languages */}
         <Pie3D data={mostUsed} />
-        <Column3D data={chartData} />
+        <Column3D data={stars} />
         <Doughnut2D data={mostPopular} />
-        <Bar3D data={chartData} />
+        <Bar3D data={forks} />
       </Wrapper>
     </section>
   )
