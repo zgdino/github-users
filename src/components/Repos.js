@@ -47,7 +47,7 @@ const Repos = () => {
     })
     .slice(0, 5)
 
-    console.log(mostPopular);
+  console.log(mostPopular)
 
   // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
@@ -70,8 +70,9 @@ const Repos = () => {
         {/* it will show pie chart in percentages calculated from chartData ↑ */}
         {/* pull the data to be displayed from languages */}
         <Pie3D data={mostUsed} />
-        <Column3D data={chartData}/>
+        <Column3D data={chartData} />
         <Doughnut2D data={mostPopular} />
+        <Bar3D data={chartData} />
       </Wrapper>
     </section>
   )
