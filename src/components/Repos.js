@@ -61,6 +61,8 @@ const Repos = () => {
       forks: {},
     }
   )
+  // creating stars in to an array, showcasing the last five in everse order bacuse we are looking the ones with the most stars in ascending order
+  stars = Object.values(stars).slice(-5).reverse()
 
   // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
