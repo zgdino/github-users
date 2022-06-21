@@ -70,7 +70,7 @@ const Repos = () => {
         {/* it will show pie chart in percentages calculated from chartData ↑ */}
         {/* pull the data to be displayed from languages */}
         <Pie3D data={mostUsed} />
-        <div></div>
+        <Column3D data={chartData}/>
         <Doughnut2D data={mostPopular} />
       </Wrapper>
     </section>
