@@ -54,7 +54,7 @@ const Repos = () => {
       const { stargazers_count, name, forks } = item
       // setting it up to match the charts 'needs' like in the previous charts
       total.stars[stargazers_count] = { label: name, value: stargazers_count }
-      total.forks[forks] = {label: name, value: forks}
+      total.forks[forks] = { label: name, value: forks }
       return total
     },
     {
@@ -64,7 +64,7 @@ const Repos = () => {
   )
   // creating stars in to an array, showcasing the last five in everse order bacuse we are looking the ones with the most stars in ascending order
   stars = Object.values(stars).slice(-5).reverse()
-  forks = Object.values(forks).slice(-5).reverse()
+  forks = Object.values(forks).slice(-5)
 
   return (
     <section className='section'>
