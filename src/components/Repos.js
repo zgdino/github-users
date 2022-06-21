@@ -47,7 +47,18 @@ const Repos = () => {
     })
     .slice(0, 5)
 
-  console.log(mostPopular)
+  // stars, forks
+
+  let { stars, forks } = repos.reduce(
+    (total, item) => {
+      const { stargazers_count, name, forks } = item
+      return total
+    },
+    {
+      stars: {},
+      forks: {},
+    }
+  )
 
   // this is hard coded chart that we used to showcase charts before making them dynamic
   const chartData = [
