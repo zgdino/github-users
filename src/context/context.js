@@ -26,13 +26,17 @@ const GithubProvider = ({ children }) => {
   const checkRequests = () => {
     // axios returns promise
     axios(`${rootUrl}/rate_limit`)
-      .then((data) => {})
+      .then(({ data }) => {
+        let {
+          rate: { remaining },
+        } = data
+        setRequests(remaining)
+      })
       .catch((err) => console.log(err))
   }
   // error
-  useEffect(() => {
-    console.log('app loaded')
-  }, [])
+  // once the app loads, use checkRequests as our callback function
+  useEffect(checkRequests, [])
   return (
     <GithubContext.Provider value={{ githubUser, repos, followers }}>
       {children}
