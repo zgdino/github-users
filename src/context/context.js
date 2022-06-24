@@ -31,6 +31,9 @@ const GithubProvider = ({ children }) => {
           rate: { remaining },
         } = data
         setRequests(remaining)
+        if (remaining === 0) {
+          // throw an error
+        }
       })
       .catch((err) => console.log(err))
   }
@@ -38,7 +41,7 @@ const GithubProvider = ({ children }) => {
   // once the app loads, use checkRequests as our callback function
   useEffect(checkRequests, [])
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers }}>
+    <GithubContext.Provider value={{ githubUser, repos, followers, requests }}>
       {children}
     </GithubContext.Provider>
   )
