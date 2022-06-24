@@ -26,7 +26,9 @@ const GithubProvider = ({ children }) => {
   const checkRequests = () => {
     // axios returns promise
     axios(`${rootUrl}/rate_limit`)
+    // instant destructuring of 'data'
       .then(({ data }) => {
+        // destructuring 'remaining' from data, making it <<let>> because it changes
         let {
           rate: { remaining },
         } = data

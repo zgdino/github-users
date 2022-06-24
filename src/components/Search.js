@@ -24,9 +24,11 @@ const Search = () => {
               value={user}
               onChange={(e) => setUser(e.target.value)}
             />
+            {/* if there are no more requests remaining, hide the button */}
             {requests > 0 && <button type='submit'>search</button>}
           </div>
         </form>
+        {/* dynamically setting the number of requests */}
         <h3>requests: {requests} / 60</h3>
       </Wrapper>
     </section>
