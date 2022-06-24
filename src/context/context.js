@@ -22,6 +22,17 @@ const GithubProvider = ({ children }) => {
   // state hooks for loading and requests
   const [requests, setRequests] = useState(0)
   const [loading, setLoading] = useState(false)
+  // check rate
+  const checkRequests = () => {
+    // axios returns promise
+    axios(`${rootUrl}/rate_limit`)
+      .then((data) => {})
+      .catch((err) => console.log(err))
+  }
+  // error
+  useEffect(() => {
+    console.log('app loaded')
+  }, [])
   return (
     <GithubContext.Provider value={{ githubUser, repos, followers }}>
       {children}
