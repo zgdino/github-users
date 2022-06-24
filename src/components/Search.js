@@ -8,7 +8,18 @@ const Search = () => {
   const handleSubmit = (e) => {
     console.log(user)
   }
-  return <h2>search component</h2>
+  return (
+    <section className='section'>
+      <Wrapper className='section-center'>
+        <form onSubmit={handleSubmit}>
+          <div className='form-control'>
+            <MdSearch />
+            <input type='text' placeholder='enter github user' />
+          </div>
+        </form>
+      </Wrapper>
+    </section>
+  )
 }
 
 const Wrapper = styled.div`
