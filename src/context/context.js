@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import mockUser from './mockData.js/mockUser'
 import mockRepos from './mockData.js/mockRepos'
 import mockFollowers from './mockData.js/mockFollowers'
+// to perform an ajax requestAnimationFrame, we are using an axios library
 import axios from 'axios'
 
 // github API only gives 60 requests per user and that is why we are using mock values for building this app
@@ -18,8 +19,13 @@ const GithubProvider = ({ children }) => {
   const [githubUser, setGithubUser] = useState(mockUser)
   const [repos, setRepos] = useState(mockRepos)
   const [followers, setFollowers] = useState(mockFollowers)
+  // state hooks for loading and requests
+  const [requests, setRequests] = useState(0)
+  const [loading, setLoading] = useState(false)
   return (
-    <GithubContext.Provider value={{githubUser, repos, followers}}>{children}</GithubContext.Provider>
+    <GithubContext.Provider value={{ githubUser, repos, followers }}>
+      {children}
+    </GithubContext.Provider>
   )
 }
 
