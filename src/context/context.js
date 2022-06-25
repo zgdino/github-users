@@ -22,11 +22,13 @@ const GithubProvider = ({ children }) => {
   // state hooks for loading and requests
   const [requests, setRequests] = useState(0)
   const [loading, setLoading] = useState(false)
+  // error
+  const [error, setError] = useState({ show: false, msg: '' })
   // check rate
   const checkRequests = () => {
     // axios returns promise
     axios(`${rootUrl}/rate_limit`)
-    // instant destructuring of 'data'
+      // instant destructuring of 'data'
       .then(({ data }) => {
         // destructuring 'remaining' from data, making it <<let>> because it changes
         let {
@@ -39,7 +41,8 @@ const GithubProvider = ({ children }) => {
       })
       .catch((err) => console.log(err))
   }
-  // error
+  // error function
+  
   // once the app loads, use checkRequests as our callback function
   useEffect(checkRequests, [])
   return (
