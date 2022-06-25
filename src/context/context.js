@@ -37,12 +37,18 @@ const GithubProvider = ({ children }) => {
         setRequests(remaining)
         if (remaining === 0) {
           // throw an error
+          toggleError(
+            true,
+            'sorry, you have exceeded your hourly limit of 60 requests!'
+          )
         }
       })
       .catch((err) => console.log(err))
   }
-  // error function
-  
+  // error toggle function
+  function toggleError(show, msg) {
+    setError({ show, msg })
+  }
   // once the app loads, use checkRequests as our callback function
   useEffect(checkRequests, [])
   return (
