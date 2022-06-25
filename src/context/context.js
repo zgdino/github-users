@@ -34,7 +34,6 @@ const GithubProvider = ({ children }) => {
         let {
           rate: { remaining },
         } = data
-        remaining = 0
         setRequests(remaining)
         if (remaining === 0) {
           // throw an error
@@ -46,8 +45,8 @@ const GithubProvider = ({ children }) => {
       })
       .catch((err) => console.log(err))
   }
-  // error toggle function
-  function toggleError(show, msg) {
+  // error toggle function and its default values passed as an arguments
+  function toggleError(show = false, msg = '') {
     setError({ show, msg })
   }
   // once the app loads, use checkRequests as our callback function
