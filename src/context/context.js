@@ -52,7 +52,7 @@ const GithubProvider = ({ children }) => {
   // once the app loads, use checkRequests as our callback function
   useEffect(checkRequests, [])
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers, requests }}>
+    <GithubContext.Provider value={{ githubUser, repos, followers, requests, error }}>
       {children}
     </GithubContext.Provider>
   )
