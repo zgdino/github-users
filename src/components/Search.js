@@ -4,12 +4,13 @@ import { MdSearch } from 'react-icons/md'
 import { GithubContext } from '../context/context'
 const Search = () => {
   const [user, setUser] = React.useState('')
-  const { requests, error } = React.useContext(GithubContext)
-  console.log(requests)
+  const { requests, error, searchGithubUser } = React.useContext(GithubContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (user) {
+      // passing in the user that I am getting from local state
+      searchGithubUser(user)
     }
   }
   return (

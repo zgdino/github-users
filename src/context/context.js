@@ -24,6 +24,11 @@ const GithubProvider = ({ children }) => {
   const [loading, setLoading] = useState(false)
   // error
   const [error, setError] = useState({ show: false, msg: '' })
+
+  const searchGithubUser = async (user) => {
+    console.log(user)
+  }
+
   // check rate
   const checkRequests = () => {
     // axios returns promise
@@ -53,7 +58,14 @@ const GithubProvider = ({ children }) => {
   useEffect(checkRequests, [])
   return (
     <GithubContext.Provider
-      value={{ githubUser, repos, followers, requests, error }}
+      value={{
+        githubUser,
+        repos,
+        followers,
+        requests,
+        error,
+        searchGithubUser,
+      }}
     >
       {children}
     </GithubContext.Provider>
