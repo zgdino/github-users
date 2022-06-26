@@ -26,9 +26,18 @@ const GithubProvider = ({ children }) => {
   const [error, setError] = useState({ show: false, msg: '' })
 
   const searchGithubUser = async (user) => {
-    const response = await axios(`${rootUrl}/users/${user}`).catch(err =>
+    // we can just invoke toggleError, because the function is setup in a way that has default values... and toggled like below will grab those defaults - in this case it is 'false' and empty message... so when searched for user that does not exist, it will throw an error message and if you are searchiong for something else right after that, the error message will disappear
+    toggleError()
+    const response = await axios(`${rootUrl}/users/${user}`).catch((err) =>
       console.log(err)
     )
+    console.log(response)
+    if (response) {
+      setGithubUser(response.data)
+    }
+    else {
+      toggleError(true, 'invalid username')
+    }
   }
 
   // check rate
