@@ -26,7 +26,9 @@ const GithubProvider = ({ children }) => {
   const [error, setError] = useState({ show: false, msg: '' })
 
   const searchGithubUser = async (user) => {
-    console.log(user)
+    const response = await axios(`${rootUrl}/users/${user}`).catch(err =>
+      console.log(err)
+    )
   }
 
   // check rate
