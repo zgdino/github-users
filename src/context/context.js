@@ -21,13 +21,14 @@ const GithubProvider = ({ children }) => {
   const [followers, setFollowers] = useState(mockFollowers)
   // state hooks for loading and requests
   const [requests, setRequests] = useState(0)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   // error
   const [error, setError] = useState({ show: false, msg: '' })
 
   const searchGithubUser = async (user) => {
     // we can just invoke toggleError, because the function is setup in a way that has default values... and toggled like below will grab those defaults - in this case it is 'false' and empty message... so when searched for user that does not exist, it will throw an error message and if you are searchiong for something else right after that, the error message will disappear
     toggleError()
+    setIsLoading(true)
     // axios is GET by defualt
     const response = await axios(`${rootUrl}/users/${user}`).catch((err) =>
       console.log(err)
@@ -38,6 +39,8 @@ const GithubProvider = ({ children }) => {
     } else {
       toggleError(true, 'invalid username')
     }
+    checkRequests()
+    setIsLoading(false)
   }
 
   // check rate
