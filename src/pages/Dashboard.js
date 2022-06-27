@@ -5,11 +5,12 @@ import loadingImage from '../images/preloader.gif'
 import { GithubContext } from '../context/context'
 const Dashboard = () => {
   const {isLoading} = React.useContext(GithubContext)
+  // if loading is true show only selected components
   if (isLoading) {
     return <main>
       <Navbar/>
       <Search/>
-      <img src={loadingImage} className='loading-img' alt='lodaing' />
+      <img src={loadingImage} className='loading-img' alt='loading' />
     </main>
   }
   return (
