@@ -4,7 +4,8 @@ import { MdSearch } from 'react-icons/md'
 import { GithubContext } from '../context/context'
 const Search = () => {
   const [user, setUser] = React.useState('')
-  const { requests, error, searchGithubUser } = React.useContext(GithubContext)
+  const { requests, error, searchGithubUser, isLoading } =
+    React.useContext(GithubContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -31,8 +32,10 @@ const Search = () => {
               value={user}
               onChange={(e) => setUser(e.target.value)}
             />
-            {/* if there are no more requests remaining, hide the button */}
-            {requests > 0 && <button type='submit'>search</button>}
+            {/* if there are no more requests remaining and loading is not true, hide the button */}
+            {requests > 0 && !isLoading && (
+              <button type='submit'>search</button>
+            )}
           </div>
         </form>
         {/* dynamically setting the number of requests */}
