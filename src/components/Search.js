@@ -32,7 +32,7 @@ const Search = () => {
               value={user}
               onChange={(e) => setUser(e.target.value)}
             />
-            {/* if there are no more requests remaining and loading is not true, hide the button */}
+            {/* if there are no more requests remaining and loading is true, hide the button */}
             {requests > 0 && !isLoading && (
               <button type='submit'>search</button>
             )}
