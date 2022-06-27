@@ -21,7 +21,7 @@ const GithubProvider = ({ children }) => {
   const [followers, setFollowers] = useState(mockFollowers)
   // state hooks for loading and requests
   const [requests, setRequests] = useState(0)
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   // error
   const [error, setError] = useState({ show: false, msg: '' })
 
@@ -35,8 +35,7 @@ const GithubProvider = ({ children }) => {
     console.log(response)
     if (response) {
       setGithubUser(response.data)
-    }
-    else {
+    } else {
       toggleError(true, 'invalid username')
     }
   }
@@ -77,6 +76,7 @@ const GithubProvider = ({ children }) => {
         requests,
         error,
         searchGithubUser,
+        isLoading,
       }}
     >
       {children}
