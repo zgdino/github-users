@@ -39,7 +39,15 @@ const GithubProvider = ({ children }) => {
       const { login, followers_url } = response.data
       // repos url setup
       // https://api.github.com/users/john-smilga/repos?per_page=100
-      axios(`${rootUrl}/users/${login}/repos?per_page=100`).then(response => console.log(response))
+      axios(`${rootUrl}/users/${login}/repos?per_page=100`).then((response) =>
+        console.log(response)
+      )
+      // followers url setup
+      // https://api.github.com/users/john-smilga/followers?per_page=100
+      // no need for rootUrl because we destructured followers_url from response.data
+      axios(`${followers_url}?per_page=100`).then((response) =>
+        console.log(response)
+      )
     } else {
       toggleError(true, 'invalid username')
     }
