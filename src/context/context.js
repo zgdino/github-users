@@ -40,12 +40,14 @@ const GithubProvider = ({ children }) => {
       // repos url setup
       // https://api.github.com/users/john-smilga/repos?per_page=100
       axios(`${rootUrl}/users/${login}/repos?per_page=100`).then((response) =>
+      // showing the correct repos on the screen
         setRepos(response.data)
       )
       // followers url setup
       // https://api.github.com/users/john-smilga/followers?per_page=100
       // no need for rootUrl because we destructured followers_url from response.data
       axios(`${followers_url}?per_page=100`).then((response) =>
+      // showing correct followers
         setFollowers(response.data)
       )
     } else {
