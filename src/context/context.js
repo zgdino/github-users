@@ -37,7 +37,9 @@ const GithubProvider = ({ children }) => {
     if (response) {
       setGithubUser(response.data)
       const { login, followers_url } = response.data
-      axios(`${rootUrl}/users/${login}/repos?per_page=100`)
+      // repos url setup
+      // https://api.github.com/users/john-smilga/repos?per_page=100
+      axios(`${rootUrl}/users/${login}/repos?per_page=100`).then(response => console.log(response))
     } else {
       toggleError(true, 'invalid username')
     }
