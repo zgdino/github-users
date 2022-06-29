@@ -45,13 +45,14 @@ const GithubProvider = ({ children }) => {
           console.log(results)
           const [repos, followers] = results
           const status = 'fulfilled'
+          // checking 'rejected' OR 'filfilled' status
           if (repos.status === status) {
             setRepos(repos.value.data)
           }
           if (followers.status === status) {
             setFollowers(followers.value.data)
           }
-        })
+        }) // in case of error, print it on the console
         .catch((err) => console.log(err))
     } else {
       toggleError(true, 'invalid username')
