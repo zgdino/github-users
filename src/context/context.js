@@ -42,6 +42,14 @@ const GithubProvider = ({ children }) => {
         axios(`${followers_url}?per_page=100`),
       ]).then((results) => {
         console.log(results)
+        const [repos, followers] = results
+        const status = 'fulfilled'
+        if (repos.status === status) {
+          setRepos(repos.value.data)
+        }
+        if (followers.status === status) {
+          setFollowers(followers.value.data)
+        }
       })
     } else {
       toggleError(true, 'invalid username')
