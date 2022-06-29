@@ -36,19 +36,13 @@ const GithubProvider = ({ children }) => {
     if (response) {
       setGithubUser(response.data)
       const { login, followers_url } = response.data
-      // repos url setup
-      // https://api.github.com/users/john-smilga/repos?per_page=100
-      axios(`${rootUrl}/users/${login}/repos?per_page=100`).then((response) =>
-      // showing the correct repos on the screen
-        setRepos(response.data)
-      )
-      // followers url setup
-      // https://api.github.com/users/john-smilga/followers?per_page=100
-      // no need for rootUrl because we destructured followers_url from response.data
-      axios(`${followers_url}?per_page=100`).then((response) =>
-      // showing correct followers
-        setFollowers(response.data)
-      )
+        // repos url setup
+        // https://api.github.com/users/john-smilga/repos?per_page=100
+        
+      await Promise.allSettled([
+        axios(`${rootUrl}/users/${login}/repos?per_page=100`),
+        axios(`${followers_url}?per_page=100`),
+      ])
     } else {
       toggleError(true, 'invalid username')
     }
