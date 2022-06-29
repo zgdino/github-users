@@ -36,13 +36,13 @@ const GithubProvider = ({ children }) => {
     if (response) {
       setGithubUser(response.data)
       const { login, followers_url } = response.data
-        // repos url setup
-        // https://api.github.com/users/john-smilga/repos?per_page=100
-        
+      // making sure that all the data presented is loaded and presented at the same time
       await Promise.allSettled([
         axios(`${rootUrl}/users/${login}/repos?per_page=100`),
         axios(`${followers_url}?per_page=100`),
-      ])
+      ]).then((results) => {
+        console.log(results)
+      })
     } else {
       toggleError(true, 'invalid username')
     }
