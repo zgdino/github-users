@@ -7,6 +7,8 @@ const Navbar = () => {
     useAuth0()
   return (
     <Wrapper>
+      {/* slightly different than docs, but still works
+      for some reason chrome is acting funny, but edge and brave do what I need to be done */}
       <button onClick={loginWithRedirect} className='btn'>
         login
       </button>
