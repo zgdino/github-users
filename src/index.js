@@ -13,12 +13,12 @@ import { Auth0Provider } from '@auth0/auth0-react'
 // nUP3elnhoOV266IypdP33dZqy88cm334
 
 ReactDOM.render(
-  <React.StrictMode
-    domain='dev-oeebqrcp.us.auth0.com'
-    clientId='nUP3elnhoOV266IypdP33dZqy88cm334'
-    redirectUri={window.location.origin}
-  >
-    <Auth0Provider>
+  <React.StrictMode>
+    <Auth0Provider
+      domain='dev-oeebqrcp.us.auth0.com'
+      clientId='nUP3elnhoOV266IypdP33dZqy88cm334'
+      redirectUri={window.location.origin}
+    >
       <GithubProvider>
         <App />
       </GithubProvider>
