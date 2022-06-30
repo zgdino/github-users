@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       {/* slightly different than docs, but still works
-      for some reason chrome is acting funny, but edge and brave do what I need to be done */}
+      for some reason chrome is acting funny(clear chrome cache if it happens in the future), but edge and brave do what I need to be done */}
       <button onClick={loginWithRedirect} className='btn'>
         login
       </button>
