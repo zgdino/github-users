@@ -5,9 +5,13 @@ import { useAuth0 } from '@auth0/auth0-react'
 const Navbar = () => {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
     useAuth0()
-    console.log({isAuthenticated, user, isLoading});
+    const isUser = isAuthenticated && user
   return (
     <Wrapper>
+      {/* displaying the photo of the user if it is logged in and the picture exists */}
+      {isUser && user.picture && <img src={user.picture} alt={user.name} />}
+      {/* displaying the username next to its photo if it is logged in and it has a username --- in our case username will be the same as email */}
+      {isUser && user.name && <h4>Welcome, <strong>{user.name.tuUpperCase()}</strong></h4>}
       {/* slightly different than docs, but still works
       for some reason chrome is acting funny(clear chrome cache if it happens in the future), but edge and brave do what I need to be done */}
       <button onClick={loginWithRedirect} className='btn'>
