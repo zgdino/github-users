@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { useAuth0 } from '@auth0/auth0-react'
 
+// clear browser cache first while troubleshooting
+
 const Navbar = () => {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
     useAuth0()
@@ -31,8 +33,6 @@ const Navbar = () => {
           login
         </button>
       )}
-      {/* slightly different than docs, but still works
-      for some reason chrome is acting funny(clear chrome cache if it happens in the future), but edge and brave do what I need to be done */}
     </Wrapper>
   )
 }
