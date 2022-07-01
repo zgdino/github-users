@@ -5,12 +5,16 @@ import { useAuth0 } from '@auth0/auth0-react'
 const Navbar = () => {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
     useAuth0()
+    console.log({isAuthenticated, user, isLoading});
   return (
     <Wrapper>
       {/* slightly different than docs, but still works
       for some reason chrome is acting funny(clear chrome cache if it happens in the future), but edge and brave do what I need to be done */}
       <button onClick={loginWithRedirect} className='btn'>
         login
+      </button>
+      <button onClick={() => {logout({returnTo:window.location.origin})}} className='btn'>
+        logout
       </button>
     </Wrapper>
   )
