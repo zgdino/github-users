@@ -5,21 +5,34 @@ import { useAuth0 } from '@auth0/auth0-react'
 const Navbar = () => {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
     useAuth0()
-    const isUser = isAuthenticated && user
+  const isUser = isAuthenticated && user
   return (
     <Wrapper>
       {/* displaying the photo of the user if it is logged in and the picture exists */}
       {isUser && user.picture && <img src={user.picture} alt={user.name} />}
       {/* displaying the username next to its photo if it is logged in and it has a username --- in our case username will be the same as email */}
-      {isUser && user.name && <h4>Welcome, <strong>{user.name.tuUpperCase()}</strong></h4>}
+      {isUser && user.name && (
+        <h4>
+          Welcome, <strong>{user.name.toUpperCase()}</strong>
+        </h4>
+      )}
+      {/* display the logout button if the user is logged in and display login button if the user is not logged in */}
+      {isUser ? (
+        <button
+          onClick={() => {
+            logout({ returnTo: window.location.origin })
+          }}
+          className='btn'
+        >
+          logout
+        </button>
+      ) : (
+        <button onClick={loginWithRedirect} className='btn'>
+          login
+        </button>
+      )}
       {/* slightly different than docs, but still works
       for some reason chrome is acting funny(clear chrome cache if it happens in the future), but edge and brave do what I need to be done */}
-      <button onClick={loginWithRedirect} className='btn'>
-        login
-      </button>
-      <button onClick={() => {logout({returnTo:window.location.origin})}} className='btn'>
-        logout
-      </button>
     </Wrapper>
   )
 }
