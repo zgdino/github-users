@@ -18,6 +18,8 @@ ReactDOM.render(
       domain='dev-oeebqrcp.us.auth0.com'
       clientId='nUP3elnhoOV266IypdP33dZqy88cm334'
       redirectUri={window.location.origin}
+      // once logged in it keeps you logged in even if you close the page
+      cacheLocation = 'localstorage'
     >
       <GithubProvider>
         <App />
