@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
+    // whatever is wrapped in AuthWrapper becomes it children, that same way Router children is everything wrapped in it
     <AuthWrapper>
       <Router>
         {/* switch renders the first route that matches; using it to avoid displaying multiple pages at the same time */}
