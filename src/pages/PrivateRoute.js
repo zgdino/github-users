@@ -8,6 +8,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={() => {
+        // if isUser is true return children, else redirect to login page
         return isUser ? children : <Redirect to='login'></Redirect>
       }}
     ></Route>
