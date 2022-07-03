@@ -8,9 +8,9 @@ function App() {
       {/* switch renders the first route that matches; using it to avoid displaying multiple pages at the same time */}
       <Switch>
         {/* Dashboard is our homepage. Making sure the url matches exactly */}
-        <Route path='/' exact={true}>
+        <PrivateRoute path='/' exact={true}>
           <Dashboard></Dashboard>
-        </Route>
+        </PrivateRoute>
         <Route path='/login'>
           <Login></Login>
         </Route>
