@@ -14,10 +14,13 @@ const GithubContext = React.createContext()
 // User - GithubContext.Consumer will get set up in each component through useContext hook
 
 const GithubProvider = ({ children }) => {
-  // useState hook returns an array of two values - default value(githunUser in this case) and a function that allows us to change it(setGithubUser)
+  // useState hook returns an array of two values - default value(githubUser in this case) and a function that allows us to change it(setGithubUser)
   // we are using mock (static) data because of 60 requests limit by github API
+  // this will be the default user shown to the user
   const [githubUser, setGithubUser] = useState(mockUser)
+  // default repos shown to the user
   const [repos, setRepos] = useState(mockRepos)
+  // default followers shown to the user
   const [followers, setFollowers] = useState(mockFollowers)
   // state hooks for loading and requests
   const [requests, setRequests] = useState(0)
