@@ -110,6 +110,5 @@ package.json
 
 #### Chrome freezing solution
 
-Clear the cache before fixing anything else and test in incognito mode
-
-Disable extensions - it works like a charm
+Disable extensions and clear the cache.
+Try running in incognito mode.
