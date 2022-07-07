@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GithubContext } from '../context/context'
+// eslint-disable-next-line
 import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts'
 const Repos = () => {
   // repos is initialized in context.js by mockRepos.js and we are accessing it here by using useContext hook
